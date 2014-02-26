@@ -37,12 +37,12 @@ function islandora_video_preprocess_islandora_video(array &$variables) {
   $variables['metadata'] = islandora_retrieve_metadata_markup($object);
   $variables['description'] = islandora_retrieve_description_markup($object);
   // Use OGG datastream for chrome but MP4 for everybody else.
-  if (stristr($_SERVER['HTTP_USER_AGENT'], 'chrome') !== FALSE) {
-    $viewer_dsid = 'OGG';
-  }
-  else {
+  //if (stristr($_SERVER['HTTP_USER_AGENT'], 'chrome') !== FALSE) {
+  //  $viewer_dsid = 'OGG';
+  //}
+  //else {
     $viewer_dsid = 'MP4';
-  }
+  //}
 
   $video_params = array(
     'pid' => $object->id,
