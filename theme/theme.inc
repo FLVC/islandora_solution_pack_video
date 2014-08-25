@@ -36,13 +36,9 @@ function islandora_video_preprocess_islandora_video(array &$variables) {
   $variables['parent_collections'] = islandora_get_parents_from_rels_ext($object);
   $variables['metadata'] = islandora_retrieve_metadata_markup($object);
   $variables['description'] = islandora_retrieve_description_markup($object);
-  // Use OGG datastream for chrome but MP4 for everybody else.
-  //if (stristr($_SERVER['HTTP_USER_AGENT'], 'chrome') !== FALSE) {
-  //  $viewer_dsid = 'OGG';
-  //}
-  //else {
-    $viewer_dsid = 'MP4';
-  //}
+
+  $viewer_dsid = 'MP4';
+  $mime = 'video/mp4';
 
   $video_params = array(
     'pid' => $object->id,
@@ -51,7 +47,7 @@ function islandora_video_preprocess_islandora_video(array &$variables) {
   if (isset($object[$viewer_dsid]) && islandora_datastream_access(ISLANDORA_VIEW_OBJECTS, $object[$viewer_dsid])) {
     $video_url = url("islandora/object/{$object->id}/datastream/$viewer_dsid/view");
     $video_params += array(
-      'mime' => 'video/mp4',
+      'mime' => $mime,
       'url' => $video_url,
     );
   }
