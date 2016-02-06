@@ -4,7 +4,7 @@
 
 Adds all required Fedora objects to allow users to ingest and retrieve video files through the Islandora interface
 
-**This module requires libfaac. Libfaac is not free for commercial use.**
+**This module uses libfaac by default. Libfaac is not free for commercial use.** This setting can be changed in the configuration options.
 
 ## Requirements
 
@@ -12,8 +12,9 @@ This module requires the following modules/libraries:
 
 * [Islandora](https://github.com/islandora/islandora)
 * [Tuque](https://github.com/islandora/tuque)
-* FFmpeg - Compliation guides: [Ubuntu](https://ffmpeg.org/trac/ffmpeg/wiki/UbuntuCompilationGuide), [CentOS](http://ffmpeg.org/trac/ffmpeg/wiki/CentosCompilationGuide).
-* ffmpeg2theora (optional) - [Instructions](https://wiki.duraspace.org/display/ISLANDORA714/Chapter+12+-+Installing+Solution+Pack+Dependencies)
+* FFmpeg - Compliation guides: [Ubuntu](https://ffmpeg.org/trac/ffmpeg/wiki/UbuntuCompilationGuide
+), [CentOS](http://ffmpeg.org/trac/ffmpeg/wiki/CentosCompilationGuide).
+* [ffmpeg2theora](http://v2v.cc/~j/ffmpeg2theora/) (optional)
 
 FFmpeg version 1.1.4 has been tested. It can be downloaded [here](http://www.ffmpeg.org/releases/ffmpeg-1.1.4.tar.gz)
 
@@ -27,7 +28,11 @@ Install as usual, see [this](https://drupal.org/documentation/install/modules-th
 
 Set the path for `ffmpeg`, select configuration options and viewer in Administration » Islandora » Video Solution Pack (admin/islandora/video).
 
-![Configuration](http://i.imgur.com/OnR9lRl.png)
+![Configuration](https://raw.githubusercontent.com/wiki/Islandora/islandora_solution_pack_video/images/islandora_video_config.png)
+
+## Documentation
+
+Further documentation for this module is available at [our wiki](https://wiki.duraspace.org/display/ISLANDORA/Video+Solution+Pack).
 
 ## Troubleshooting/Issues
 
@@ -44,7 +49,7 @@ Current maintainers:
 
 ## Development
 
-If you would like to contribute to this module, please check out our helpful [Documentation for Developers](https://github.com/Islandora/islandora/wiki#wiki-documentation-for-developers) info, as well as our [Developers](http://islandora.ca/developers) section on the Islandora.ca site.
+If you would like to contribute to this module, please check out [CONTRIBUTING.md](CONTRIBUTING.md). In addition, we have helpful [Documentation for Developers](https://github.com/Islandora/islandora/wiki#wiki-documentation-for-developers) info, as well as our [Developers](http://islandora.ca/developers) section on the [Islandora.ca](http://islandora.ca) site.
 
 The Video Solution Pack includes an ingest/purge load test that is disabled and unusable by default. This particular solution pack was chosen for load testing due to the resource-heavy process of creating video derivatives and ingesting several potentially-massive files. To enable and use it:
 
