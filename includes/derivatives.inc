@@ -29,7 +29,7 @@ function islandora_video_create_mp4(AbstractObject $object, $force = FALSE) {
     $audio_codec = variable_get('islandora_video_mp4_audio_codec', 'aac');
 
     $ffmpeg_executable = variable_get('islandora_video_ffmpeg_path', 'ffmpeg');
-      $command = "$ffmpeg_executable -i $archival_path -f mp4 -vcodec libx264 -preset medium -crf 20 -acodec libfdk_aac -ab 128k -ac 2 -async 1 -movflags faststart $out_file";
+      $command = "$ffmpeg_executable -i $archival_path -f mp4 -vcodec libx264 -preset medium -crf 20 -acodec libfdk_aac -ab 128k -ac 2 -async 1 -movflags faststart -threads 1 $out_file";
     //FLVC $command = "$ffmpeg_executable -i $archival_path -f mp4 -vcodec libx264 -preset medium -acodec libfdk_aac -ab 128k -ac 2 -async 1 -movflags faststart $out_file";
     //FLVC $command = "$ffmpeg_executable -i $archival_path -f mp4 -vcodec libx264 -vpre medium -acodec libfaac -ab 128k -ac 2 -async 1 $out_file";
     //$command = "$ffmpeg_executable -i $archival_path -f mp4 -vcodec libx264 -preset medium -acodec $audio_codec -strict -2 -ab 128k -ac 2 -async 1 -movflags faststart $out_file";
